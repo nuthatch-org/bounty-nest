@@ -22,5 +22,5 @@ allocation open. Anyone can then call `distribute(bounty_id, allocation)`, and t
 `expires_at` is unix seconds, 0 for none. The contract has no event for time passing, so an open
 bounty past its expiry still reads `open` here; compare it with your own clock.
 
-The views were built against a board that had not yet held a bounty, so no row has been through
-them.
+One real bounty has been through the views, open. No paid, cancelled or refunded bounty has yet,
+because the board has not had one.
