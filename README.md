@@ -9,6 +9,15 @@ nuthatch dev
 nuthatch sql "SELECT * FROM open_bounties"
 ```
 
+Or ask the copy we run, which needs no key and takes `GET` only:
+
+```sh
+curl 'https://nuthatch-indexer.com/nests/bounty-nest/sql?q=SELECT%20*%20FROM%20open_bounties'
+```
+
+It follows the chain a minute behind at most. It carries no uptime promise, which is the reason
+the nest is here for you to run yourself.
+
 | Relation | What it is |
 |---|---|
 | `open_bounties` | Bounties still in escrow, largest first. What an indexer's automation polls. |
