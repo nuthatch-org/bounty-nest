@@ -1,0 +1,295 @@
+{
+  "registry_hash": "0xaf0bdd4a503d73667a969e09502e48fb531e024b3934ab5c505fa8f6f07295c9",
+  "tables": [
+    {
+      "table": "board__bounty_cancelled",
+      "alias": "board",
+      "event": "BountyCancelled(uint256,uint256)",
+      "topic0": "0x4fe522caf12f0adba1b0532093b34bea60fc859fb838ae075b44bcd15fcde9ff",
+      "columns": [
+        {
+          "name": "block_number",
+          "sol_type": "implicit",
+          "storage": "u64",
+          "indexed": false
+        },
+        {
+          "name": "block_hash",
+          "sol_type": "implicit",
+          "storage": "bytes32",
+          "indexed": false
+        },
+        {
+          "name": "block_timestamp",
+          "sol_type": "implicit",
+          "storage": "u64",
+          "indexed": false
+        },
+        {
+          "name": "tx_hash",
+          "sol_type": "implicit",
+          "storage": "bytes32",
+          "indexed": false
+        },
+        {
+          "name": "log_index",
+          "sol_type": "implicit",
+          "storage": "u64",
+          "indexed": false
+        },
+        {
+          "name": "address",
+          "sol_type": "implicit",
+          "storage": "address",
+          "indexed": false
+        },
+        {
+          "name": "_seq",
+          "sol_type": "implicit",
+          "storage": "u64",
+          "indexed": false
+        },
+        {
+          "name": "bountyId",
+          "sol_type": "uint256",
+          "storage": "word32",
+          "indexed": true
+        },
+        {
+          "name": "amount",
+          "sol_type": "uint256",
+          "storage": "word32",
+          "indexed": false
+        }
+      ]
+    },
+    {
+      "table": "board__bounty_distributed",
+      "alias": "board",
+      "event": "BountyDistributed(uint256,address,address,address,uint256,address)",
+      "topic0": "0xdab6250b992cecff1767dce1b2fdb073764977719fc8fe3db8ae793c2469a14d",
+      "columns": [
+        {
+          "name": "block_number",
+          "sol_type": "implicit",
+          "storage": "u64",
+          "indexed": false
+        },
+        {
+          "name": "block_hash",
+          "sol_type": "implicit",
+          "storage": "bytes32",
+          "indexed": false
+        },
+        {
+          "name": "block_timestamp",
+          "sol_type": "implicit",
+          "storage": "u64",
+          "indexed": false
+        },
+        {
+          "name": "tx_hash",
+          "sol_type": "implicit",
+          "storage": "bytes32",
+          "indexed": false
+        },
+        {
+          "name": "log_index",
+          "sol_type": "implicit",
+          "storage": "u64",
+          "indexed": false
+        },
+        {
+          "name": "address",
+          "sol_type": "implicit",
+          "storage": "address",
+          "indexed": false
+        },
+        {
+          "name": "_seq",
+          "sol_type": "implicit",
+          "storage": "u64",
+          "indexed": false
+        },
+        {
+          "name": "bountyId",
+          "sol_type": "uint256",
+          "storage": "word32",
+          "indexed": true
+        },
+        {
+          "name": "indexer",
+          "sol_type": "address",
+          "storage": "address",
+          "indexed": true
+        },
+        {
+          "name": "allocationId",
+          "sol_type": "address",
+          "storage": "address",
+          "indexed": true
+        },
+        {
+          "name": "payee",
+          "sol_type": "address",
+          "storage": "address",
+          "indexed": false
+        },
+        {
+          "name": "amount",
+          "sol_type": "uint256",
+          "storage": "word32",
+          "indexed": false
+        },
+        {
+          "name": "caller",
+          "sol_type": "address",
+          "storage": "address",
+          "indexed": false
+        }
+      ]
+    },
+    {
+      "table": "board__bounty_posted",
+      "alias": "board",
+      "event": "BountyPosted(uint256,address,bytes32,uint256,uint256)",
+      "topic0": "0xbef28b688d0c52ab7110d69dfad1e09d1429cbdf63cc240b85c92eeaca028163",
+      "columns": [
+        {
+          "name": "block_number",
+          "sol_type": "implicit",
+          "storage": "u64",
+          "indexed": false
+        },
+        {
+          "name": "block_hash",
+          "sol_type": "implicit",
+          "storage": "bytes32",
+          "indexed": false
+        },
+        {
+          "name": "block_timestamp",
+          "sol_type": "implicit",
+          "storage": "u64",
+          "indexed": false
+        },
+        {
+          "name": "tx_hash",
+          "sol_type": "implicit",
+          "storage": "bytes32",
+          "indexed": false
+        },
+        {
+          "name": "log_index",
+          "sol_type": "implicit",
+          "storage": "u64",
+          "indexed": false
+        },
+        {
+          "name": "address",
+          "sol_type": "implicit",
+          "storage": "address",
+          "indexed": false
+        },
+        {
+          "name": "_seq",
+          "sol_type": "implicit",
+          "storage": "u64",
+          "indexed": false
+        },
+        {
+          "name": "bountyId",
+          "sol_type": "uint256",
+          "storage": "word32",
+          "indexed": true
+        },
+        {
+          "name": "developer",
+          "sol_type": "address",
+          "storage": "address",
+          "indexed": true
+        },
+        {
+          "name": "deploymentId",
+          "sol_type": "bytes32",
+          "storage": "fixed_bytes",
+          "indexed": true
+        },
+        {
+          "name": "amount",
+          "sol_type": "uint256",
+          "storage": "word32",
+          "indexed": false
+        },
+        {
+          "name": "expiresAt",
+          "sol_type": "uint256",
+          "storage": "word32",
+          "indexed": false
+        }
+      ]
+    },
+    {
+      "table": "board__bounty_refunded",
+      "alias": "board",
+      "event": "BountyRefunded(uint256,uint256)",
+      "topic0": "0xeb3249acc7273411dd8411c4a876fe07b94645261640916bff262f694f0bc1d7",
+      "columns": [
+        {
+          "name": "block_number",
+          "sol_type": "implicit",
+          "storage": "u64",
+          "indexed": false
+        },
+        {
+          "name": "block_hash",
+          "sol_type": "implicit",
+          "storage": "bytes32",
+          "indexed": false
+        },
+        {
+          "name": "block_timestamp",
+          "sol_type": "implicit",
+          "storage": "u64",
+          "indexed": false
+        },
+        {
+          "name": "tx_hash",
+          "sol_type": "implicit",
+          "storage": "bytes32",
+          "indexed": false
+        },
+        {
+          "name": "log_index",
+          "sol_type": "implicit",
+          "storage": "u64",
+          "indexed": false
+        },
+        {
+          "name": "address",
+          "sol_type": "implicit",
+          "storage": "address",
+          "indexed": false
+        },
+        {
+          "name": "_seq",
+          "sol_type": "implicit",
+          "storage": "u64",
+          "indexed": false
+        },
+        {
+          "name": "bountyId",
+          "sol_type": "uint256",
+          "storage": "word32",
+          "indexed": true
+        },
+        {
+          "name": "amount",
+          "sol_type": "uint256",
+          "storage": "word32",
+          "indexed": false
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+[nest]
+name = "bounty-nest"
+chain = "arbitrum-one"
+chain_id = 42161
+rpc_urls = [
+    "https://arb1.arbitrum.io/rpc",
+    "https://arb-pokt.nodies.app",
+]
+schema_version = 1
+block_timestamps = true
+
+[[contracts]]
+alias = "board"
+address = "0x5f04b3aa9ba68db285a7216bdeb6efa9beb59962"
+start_block = 523304024
+abi = "abis/board.json"
