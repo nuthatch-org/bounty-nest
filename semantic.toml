@@ -7,6 +7,107 @@ schema_version = 1
 [nest]
 description = "The `bounty-nest` nest on arbitrum-one. (seeded from the ABI - edit semantic.toml to improve this)"
 
+[table.board3__bounty_cancelled]
+description = "`BountyCancelled(uint256,uint256)` events emitted by the `board3` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per BountyCancelled(uint256,uint256) event"
+
+[table.board3__bounty_cancelled.columns]
+amount = "The `amount` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+bountyId = "The `bountyId` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.board3__bounty_cancelled.footguns]
+big_ints = [
+    "bountyId",
+    "amount",
+]
+overflows_dec = [
+    "bountyId",
+    "amount",
+]
+
+[table.board3__bounty_distributed]
+description = "`BountyDistributed(uint256,address,address,address,uint256,address)` events emitted by the `board3` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per BountyDistributed(uint256,address,address,address,uint256,address) event"
+
+[table.board3__bounty_distributed.columns]
+allocationId = "The `allocationId` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+amount = "The `amount` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+bountyId = "The `bountyId` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+caller = "The `caller` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+indexer = "The `indexer` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+payee = "The `payee` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.board3__bounty_distributed.footguns]
+big_ints = [
+    "bountyId",
+    "amount",
+]
+overflows_dec = [
+    "bountyId",
+    "amount",
+]
+
+[table.board3__bounty_posted]
+description = "`BountyPosted(uint256,address,bytes32,uint256,uint256)` events emitted by the `board3` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per BountyPosted(uint256,address,bytes32,uint256,uint256) event"
+
+[table.board3__bounty_posted.columns]
+amount = "The `amount` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+bountyId = "The `bountyId` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+deploymentId = "The `deploymentId` bytes32 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+developer = "The `developer` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+expiresAt = "The `expiresAt` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.board3__bounty_posted.footguns]
+big_ints = [
+    "bountyId",
+    "amount",
+    "expiresAt",
+]
+overflows_dec = [
+    "bountyId",
+    "amount",
+    "expiresAt",
+]
+
+[table.board3__bounty_refunded]
+description = "`BountyRefunded(uint256,uint256)` events emitted by the `board3` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per BountyRefunded(uint256,uint256) event"
+
+[table.board3__bounty_refunded.columns]
+amount = "The `amount` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+bountyId = "The `bountyId` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.board3__bounty_refunded.footguns]
+big_ints = [
+    "bountyId",
+    "amount",
+]
+overflows_dec = [
+    "bountyId",
+    "amount",
+]
+
+[table.board3__p_o_i_proven]
+description = "`POIProven(address,bytes32,uint256,uint256)` events emitted by the `board3` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per POIProven(address,bytes32,uint256,uint256) event"
+
+[table.board3__p_o_i_proven.columns]
+allocationId = "The `allocationId` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+blockNumber = "The `blockNumber` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+poi = "The `poi` bytes32 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+presentedAt = "The `presentedAt` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.board3__p_o_i_proven.footguns]
+big_ints = [
+    "blockNumber",
+    "presentedAt",
+]
+overflows_dec = [
+    "blockNumber",
+    "presentedAt",
+]
+
 [table.board__bounty_cancelled]
 description = "`BountyCancelled(uint256,uint256)` events emitted by the `board` contract. (seeded from the ABI - edit semantic.toml to improve this)"
 grain = "one row per BountyCancelled(uint256,uint256) event"
@@ -88,14 +189,11 @@ overflows_dec = [
     "amount",
 ]
 
-[view]
-
-# Authored views (views/*.sql) are described here so the MCP/`/schema` can render them:
-# [view.your_view_name]
-# description = "What this derivation computes."
-
 [view.bounties]
-description = "Every bounty BountyBoard 2.0.0 has held, one row each, with its status: open, paid, cancelled or refunded. deployment_id is the subgraph deployment as bytes32 (the Qm hash without its 0x1220 prefix). expires_at is unix seconds, 0 for none; an open bounty past it cannot be paid."
+description = "Every bounty either board has held, one row each, with its status: open, paid, cancelled or refunded. A bounty_id is unique only on its own board, so read it with board, the contract to call; board_version is that contract's. Bounties are posted on 3.0.0 now, and 2.0.0 is kept for what was posted on it. deployment_id is the subgraph deployment as bytes32 (the Qm hash without its 0x1220 prefix). expires_at is unix seconds, 0 for none; an open bounty past it cannot be paid."
 
 [view.open_bounties]
-description = "Bounties still in escrow, largest first. To earn one: allocate to deployment_id, sync it, present a POI and leave the allocation open; anyone can then call distribute(bounty_id, allocation). check(bounty_id, allocation) on the contract says whether it would pay."
+description = "Bounties still in escrow, largest first, each with the board that holds it. To earn one on 3.0.0: allocate to deployment_id, sync it and present a POI that is not zero. Anyone can then call proveAndDistribute(bounty_id, allocation, proof) on board within about a day of the presentation, the proof being the block header and the receipt of the POIPresented log; a closed allocation is still paid. On 2.0.0 it is distribute(bounty_id, allocation) with the allocation still open."
+
+[view.proven_pois]
+description = "Each proof board 3.0.0 has accepted that an allocation presented a POI that was not zero: the allocation, the POI, the block and time it was presented, and when it was proven. An allocation can be paid any bounty on its deployment posted before presented_at."
