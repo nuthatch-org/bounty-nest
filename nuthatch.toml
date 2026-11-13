@@ -20,3 +20,9 @@ alias = "board3"
 address = "0xfbfcbb2e2da78db189443a340bc13c54bb703710"
 start_block = 523602691
 abi = "abis/board3.json"
+
+[[contracts]]
+alias = "board4"
+address = "0xc2cf5a01c91d08d039a8527616346422e75ba47d"
+start_block = 523855771
+abi = "abis/board4.json"
