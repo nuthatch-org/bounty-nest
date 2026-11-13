@@ -5,6 +5,7 @@ A self-hosted blockchain index. Query it locally; there is no third-party API.
 ## Contracts
 - `board` = 0x5f04b3aa9ba68db285a7216bdeb6efa9beb59962
 - `board3` = 0xfbfcbb2e2da78db189443a340bc13c54bb703710
+- `board4` = 0xc2cf5a01c91d08d039a8527616346422e75ba47d
 
 ## Tables (one per contract event, plus any `[extract]` table)
 - `board3__bounty_cancelled` - BountyCancelled(uint256,uint256) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, bountyId, amount)
@@ -12,6 +13,10 @@ A self-hosted blockchain index. Query it locally; there is no third-party API.
 - `board3__bounty_posted` - BountyPosted(uint256,address,bytes32,uint256,uint256) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, bountyId, developer, deploymentId, amount, expiresAt)
 - `board3__bounty_refunded` - BountyRefunded(uint256,uint256) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, bountyId, amount)
 - `board3__p_o_i_proven` - POIProven(address,bytes32,uint256,uint256) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, allocationId, poi, blockNumber, presentedAt)
+- `board4__bounty_distributed` - BountyDistributed(uint256,address,address,address,uint256,address) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, bountyId, indexer, allocationId, payee, amount, caller)
+- `board4__bounty_posted` - BountyPosted(uint256,address,bytes32,uint256,uint256) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, bountyId, developer, deploymentId, amount, expiresAt)
+- `board4__bounty_refunded` - BountyRefunded(uint256,uint256) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, bountyId, amount)
+- `board4__p_o_i_proven` - POIProven(address,bytes32,uint256,uint256) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, allocationId, poi, blockNumber, presentedAt)
 - `board__bounty_cancelled` - BountyCancelled(uint256,uint256) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, bountyId, amount)
 - `board__bounty_distributed` - BountyDistributed(uint256,address,address,address,uint256,address) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, bountyId, indexer, allocationId, payee, amount, caller)
 - `board__bounty_posted` - BountyPosted(uint256,address,bytes32,uint256,uint256) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, bountyId, developer, deploymentId, amount, expiresAt)

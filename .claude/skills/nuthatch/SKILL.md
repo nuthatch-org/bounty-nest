@@ -8,6 +8,7 @@ description: Query this self-hosted nuthatch nest on arbitrum-one - decoded even
 Contracts indexed on arbitrum-one:
 - `board` = 0x5f04b3aa9ba68db285a7216bdeb6efa9beb59962
 - `board3` = 0xfbfcbb2e2da78db189443a340bc13c54bb703710
+- `board4` = 0xc2cf5a01c91d08d039a8527616346422e75ba47d
 
 Data is local - never call an external API for it.
 
