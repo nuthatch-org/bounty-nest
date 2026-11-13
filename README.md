@@ -45,6 +45,6 @@ bounty past its expiry still reads `open` here; compare it with your own clock. 
 it can no longer be paid once its expiry passes. On 4.0.0 it is still paid for 72 hours after, and
 is refundable only after `expires_at + 259200`.
 
-One real bounty has been through the views, open, on 2.0.0. No paid, cancelled or refunded bounty
-has yet, and 3.0.0 has emitted no event at all, so its half of the views has only ever been
-empty.
+Run from the start blocks on 2026-11-13, the views held one open bounty on 2.0.0, two paid
+bounties and one proven POI on 3.0.0, and nothing on 4.0.0, which had just been deployed. No
+cancelled or refunded bounty has been through them yet.
